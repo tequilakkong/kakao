@@ -1,0 +1,307 @@
+@charset "UTF-8"
+/* ======== fonts(google) ======== */
+/* Montserrat, Noto Sans KR */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;700&family=Noto+Sans+KR:wght@300;400;500;700&display=swap');
+
+/* ========== Base ========== */
+body {
+    font-size: 14px;
+    line-height: 1.5;
+    font-family: 'Noto Sans KR', Inter,Spoqa Han Sans Neo,Apple SD Gothic Neo,Malgun Gothic,맑은 고딕,sans-serif;
+    color: #000;
+    letter-spacing: -.015em;
+}
+/* ========== Reusable ========== */
+.clear { /*ul:after*/
+    display: block;
+    content: '';
+    clear: both;
+}
+/* ========== Layout ========== */
+.inner {
+    max-width: 640px; /*640보다 더 커지지 않음. 단, 640보다 작으면 100%로 채워짐*/ 
+    min-width: 320px; /*320~640px에서는 화면 사이즈가 조절이 됨*/
+    margin: 0 auto;
+}
+/* ========== Style ========== */
+.ico_friends {
+    display: block;
+    background: url('../img/ico_friends.png') no-repeat 0 0 / 700px 800px;
+    overflow: hidden;
+    font-size: 1px;
+    color: transparent;
+}
+.ico_dot {
+    display: block;
+    width: 5px;
+    height: 5px;
+    border: 2px solid #fff;
+    border-radius: 50%;
+    background: red;
+    position: absolute;
+    top: 7px;
+    right: 3px;
+    text-indent: -9999px;
+}
+/* ========== Body ========== */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0; /*left와 right 값 둘 다 0이면 width: 100%과 동일*/
+    background: rgba(255, 255, 255, 0.753);
+    border-bottom: 1px solid rgb(242, 242, 242);
+}
+header h1 {
+    text-align: center;
+    padding-top: 10px;
+}
+header h1 a {
+    display: inline-block;
+    width: 147px;
+    height: 24px;
+    background: url('../img/logo_kakaofriends.png') no-repeat 0 0 / 147px 24px;
+    text-indent: -9999px;
+}
+
+.topLeft, .topRight {
+    position: absolute;
+    top: 6px;
+}
+.topLeft {
+    left:12px;
+}
+.topLeft > button {
+    padding: 5px;
+}
+.topLeft .ico_friends {
+    background-position: -520px -60px;
+    width: 24px;
+    height: 24px;
+}
+.topRight {
+    right: 12px;
+}
+.topRight > button {
+    padding: 5px;
+}
+.topRight .ico_search.ico_friends {
+    background-position: -40px -20px;
+    width: 24px;
+    height: 24px;
+}
+.topRight .ico_global.ico_friends {
+    background-position: -440px -60px;
+    width: 24px;
+    height: 24px;
+}
+nav {
+    margin-top: 12px;
+    border-bottom: 1px solid #e2e0e0;
+}
+nav .list_tab {
+    display: flex;
+}
+nav .list_tab li {
+    flex: 1;
+    text-align: center;
+    position: relative;
+}
+nav .list_tab li a {
+    display: block;
+    font-size: 16px;
+    line-height: 43px;
+}
+nav .list_tab li a.on {
+    font-weight: 700;
+}
+nav .list_tab li a.on:after {
+    display: block;
+    content:'';
+    width: 100%;
+    height: 4px;
+    background: #000;
+    position: relative;
+    bottom: -3px;
+}
+.list_tab li .ico_dot {
+    position: absolute;
+    top: 10px;
+    left: calc(50% + 15px);
+}
+
+#container {
+    /*max-width: 640px; /*640보다 더 커지지 않음. 단, 640보다 작으면 100%로 채워짐*/ 
+    /*min-width: 320px; /*320~640px에서는 화면 사이즈가 조절이 됨*/
+    /*margin: 0 auto;*/
+    height: 2000px; /*임시로 내용 채우기 위해 설정함. 내용 채워지면 height 값 지워도 됨*/
+    background: linear-gradient(to bottom, #fff,rgb(212, 218, 227));
+}
+
+main {
+    padding-top: 90px;
+}
+
+article {
+    background: linear-gradient(to bottom, #fff, #fff, tranparent);
+}
+article .box {
+    padding: 20px;
+}
+.article_head {
+    padding-bottom: 15px;
+}
+.article_head .profile {
+    display: block;
+    float: left;
+    width: 40px;
+    height: 40px;
+    border-radius: 16px;
+    background: url('../img/character/character_apeach_288.png') no-repeat center;
+    background-size: cover;
+    text-indent: -9999px;
+}
+.article_head .info {
+    overflow: hidden;
+    padding-left: 8px;
+}
+.article_head .info strong {
+    display: block;
+    font-size: 16px;
+    line-height: 24px;
+}
+
+.article_head .info .txt_time {
+    display: block;
+    font-size: 13px;
+    line-height: 16px;
+    color: #909092;
+}
+.article_con {}
+.article_con img {
+    width: 100%;
+    object-fit: cover;
+    border-radius: 16px;
+}
+
+/* ========== Gnb slider ========== */
+.gnb_open {
+    position: fixed;
+    top: 0;
+    left: -304px; /*-304px 평소에는 안 보임*/
+    bottom: 0;
+    width: 304px;
+    background: #fff;
+    overflow: hidden;
+    z-index: 10;
+}
+.gnb_open .inner {
+    width: 304px;
+    height: 100%;
+    margin: 0;
+    overflow-y: scroll; /*화면에 여유가 있어도 무조건 스크롤바가 생김.*/
+    overflow-x: hidden;
+    padding-right: 17px;
+    box-sizing: content-box; /*width: 304px 안에 padding 17px이 포함이 안되게 함. 그래서 오른쪽 스크롤바에 여백을 밀어넣어서 스크롤바가 안 보이게 함*/
+}
+.gnb_open img {
+    width: 100%;
+}
+.dark {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.6);
+    width: 100%;
+    /* inset: 50px; 화면에 꽉 찬 상태에서 안쪽으로 마진을 두고 나 자신이 줄어든다 */
+}
+.info_user {
+    padding: 35px 22px 23px;
+    overflow: hidden;
+}
+.info_user a {
+    line-height: 24px;
+}
+.info_user a.login {
+    float: left;
+    font-size: 16px;
+    font-weight: 700;
+}
+.info_user a.link_inquire {
+    float: right;
+}
+.info_user a.link_inquire .ico_arrow_right {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    background-position: -320px 0;
+    vertical-align: top; /*나와 다른 애들을 어떻게 놓겠냐는 속성. 그런데 잘 안될 때도 있음*/
+    margin-top: 3px;
+}
+
+.link_banner {
+    display: block;
+    margin-left: 16px;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.list_menu {
+    padding-top: 16px;
+}
+.list_menu > li {
+    position: relative;
+}
+.list_menu .btn_menu {
+    display: block;
+    width: 100%;
+    padding: 0 24px;
+    line-height: 48px;
+    font-size: 16px;
+    text-align: left;
+    overflow: hidden;
+}
+.list_menu .line {
+    padding-bottom: 16px;
+    margin-bottom: 16px;
+    border-bottom: 1px solid #e2e0e0;
+}
+.list_menu .ico_arrow {
+    float: right;
+    width: 16px;
+    height: 14px;
+    margin-top: 16px;
+    background-position: -360px 0;
+}
+.list_menu .ico_arrow.on {
+    background-position: -340px 0;
+}
+
+.list_menu .ico_dot {
+    position: absolute;
+    top: 10px;
+    left: calc(24% + 15px);
+}
+.box_banner {
+    padding: 30px 0 24px 16px;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.link_login {
+    display: block;
+    text-align: center;
+    color: #9a9696;
+    line-height: 24px;
+    margin-bottom: 150px;
+}
+.link_login .ico_lock {
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    background-position: -560px -20px;
+    vertical-align: top;
+    margin-right: 3px;
+}
